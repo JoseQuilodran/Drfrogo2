@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ayuda"
+    android:background="@drawable/gree">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="338dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:text="-Pildoras de colores aleatorios caen desde arriba de la pantalla,las pildoras ocupan 2 casillas a la vez"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:text="-Pildoras de colores aleatorios caen desde arriba de la pantalla,las pildoras ocupan 2 casillas a la vez" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="307dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:text="-Los virus y casillas se eliminan alineando 4 casillas del mismo color "
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:text="-Los virus y casillas se eliminan alineando 4 casillas del mismo color " />
+
+    <ImageButton
+        android:id="@+id/homehelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-6dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-31dp"
+        android:layout_marginTop="14dp"
+        android:text="-Para ganar elimina todos los virus de la pantalla"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        tools:text="-Para ganar elimina todos los virus de la pantalla" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="335dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:text="-Si se elminina una parte de una pildora,la que sobrasera afectada por la gravedad"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        tools:text="-Si se elminina una parte de una pildora,la que sobrasera afectada por la gravedad" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="332dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:text="-Ten cuidado si llegas al tope de la botella, PIERDES"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        tools:text="-Ten cuidado si llegas al tope de la botella, PIERDES" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/virusy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="106dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageView8"
+        android:layout_marginStart="17dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="78dp"
+        android:layout_height="84dp"
+        app:srcCompat="@drawable/drfrogo2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="87dp"
+        android:layout_marginEnd="33dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
+        app:srcCompat="@drawable/drfrogo"
+        android:layout_marginStart="25dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="88dp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/virusb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="131dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/virusr"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="106dp"
+        app:layout_constraintRight_toLeftOf="@+id/imageView7"
+        android:layout_marginEnd="15dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ayuda"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="48dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+</android.support.constraint.ConstraintLayout>

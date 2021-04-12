@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/gree">
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="256dp"
+        android:layout_height="81dp"
+        android:layout_marginLeft="55dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/ayuda"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        android:layout_marginStart="55dp"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_marginTop="11dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="254dp"
+        android:layout_height="92dp"
+        android:layout_marginLeft="55dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:srcCompat="@drawable/multij"
+        android:layout_marginStart="55dp"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_marginTop="0dp"
+        tools:layout_editor_absoluteY="282dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="256dp"
+        android:layout_height="93dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="183dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/solo"
+        tools:ignore="ContentDescription,RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="233dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/drfrogologo"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="44dp"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/imageView2"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="105dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/drfrogo2"
+        tools:ignore="ContentDescription,RtlHardcoded"
+        android:layout_marginStart="259dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>
