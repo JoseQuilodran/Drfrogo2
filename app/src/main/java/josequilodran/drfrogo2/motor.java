@@ -132,6 +132,7 @@ public class motor extends AppCompatActivity {
                 victoria();
                 fallo();
                 movedor_pildora();
+                controlador_eliminador();
                 handler.postDelayed(this, tiempo);
             }
         };
@@ -254,26 +255,7 @@ public class motor extends AppCompatActivity {
             casillas[psy2][psx2].amigoy = psy;
             casillas[psy][psx].tiene_amigo = true;
             casillas[psy2][psx2].tiene_amigo = true;
-            for (int i = 0; i <= 15; i++) { //podria estar en otro metodo
-                for (int f = 0; f <= 7; f++) {
-                    int col = casillas[i][f].color;
-                    eliminadorh(i, f, casillas[i][f].color);
-                    eliminadorv(i, f, col);
-                    int virus_ant = nvirus;
-                    int cantidadvirus = 0;
-                    if (casillas[i][f].virus && !casillas[i][f].tiene_algo) {
-                        cantidadvirus++;
-                        casillas[i][f].virus = false;
-                        nvirus = nvirus - cantidadvirus;
-                        virus.setText("" + nvirus);
-                        if (virus_ant - nvirus != 0) {
-                            npuntaje = npuntaje + 500;
-                            puntaje.setText("" + npuntaje);
-                        }
 
-                    }
-                }
-            }
             p = p2;
             p2 = new pildora();
             psx = 3;
@@ -503,6 +485,30 @@ public class motor extends AppCompatActivity {
         casillas[15][7] = new casilla(R.id.imageView233);
     }
 
+    void controlador_eliminador(){
+        for (int i = 0; i <= 15; i++) { //podria estar en otro metodo
+            for (int f = 0; f <= 7; f++) {
+                int col = casillas[i][f].color;
+                eliminadorh(i, f, casillas[i][f].color);
+                eliminadorv(i, f, col);
+                int virus_ant = nvirus;
+                int cantidadvirus = 0;
+                if (casillas[i][f].virus && !casillas[i][f].tiene_algo) {
+                    cantidadvirus++;
+                    casillas[i][f].virus = false;
+                    nvirus = nvirus - cantidadvirus;
+                    virus.setText("" + nvirus);
+                    if (virus_ant - nvirus != 0) {
+                        npuntaje = npuntaje + 500;
+                        puntaje.setText("" + npuntaje);
+                    }
+
+                }
+            }
+        }
+
+
+    }
     class virus {              //toma X ,Y ,color ;recordar que posicion en array de casillas es Y/X no X/Y
         int color=0;
         int x, y;
@@ -705,10 +711,6 @@ public class motor extends AppCompatActivity {
             Intent t = new Intent(this, MainActivity.class);
             startActivity(t);
             finish();
-            return true;
-        }
-        if (id == R.id.sonido) {
-
             return true;
         }
         return super.onOptionsItemSelected(item);
