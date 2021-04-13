@@ -23,7 +23,8 @@ public class levels_1p extends AppCompatActivity {
         n1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent t = new Intent(levels_1p.this, level_1.class);
+                Intent t = new Intent(levels_1p.this, motor.class);
+                t.putExtra("nivel",1);
                 startActivity(t);
                 finish();
             }
@@ -33,7 +34,8 @@ public class levels_1p extends AppCompatActivity {
         n2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent t = new Intent(levels_1p.this, level_2.class);
+                Intent t = new Intent(levels_1p.this, motor.class);
+                t.putExtra("nivel",2);
                 startActivity(t);
                 finish();
             }
@@ -43,7 +45,8 @@ public class levels_1p extends AppCompatActivity {
         n3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent t = new Intent(levels_1p.this, level_3.class);
+                Intent t = new Intent(levels_1p.this, motor.class);
+
                 startActivity(t);
                 finish();
             }
@@ -53,7 +56,8 @@ public class levels_1p extends AppCompatActivity {
         n4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent t = new Intent(levels_1p.this, level_4.class);
+                Intent t = new Intent(levels_1p.this, motor.class);
+                t.putExtra("nivel",4);
                 startActivity(t);
                 finish();
             }
@@ -63,7 +67,8 @@ public class levels_1p extends AppCompatActivity {
         n5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent t = new Intent(levels_1p.this, level_5.class);
+                Intent t = new Intent(levels_1p.this, motor.class);
+                t.putExtra("nivel",5);
                 startActivity(t);
                 finish();
             }

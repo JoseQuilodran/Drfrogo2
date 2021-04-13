@@ -42,7 +42,7 @@ ImageButton back;
         if (id == R.id.about) {
 
             Toast t= Toast.makeText(getApplicationContext(),
-                    "Proyecto final Dr FROGO.por Jose Quilodran 2017", Toast.LENGTH_SHORT);
+                    "Dr FROGO2 .por Jose Quilodran 2021, Basado en DrFrogo creado en 2017", Toast.LENGTH_SHORT);
             t.setGravity(Gravity.BOTTOM| Gravity.LEFT,0,0);
             t.show();
             return true;

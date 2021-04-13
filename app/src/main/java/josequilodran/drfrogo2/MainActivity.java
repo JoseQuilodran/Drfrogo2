@@ -26,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }});
 
-        ImageButton bayuda=(ImageButton) findViewById(R.id.imageButton3);
-        bayuda.setOnClickListener(new View.OnClickListener() {
+        ImageButton bayuda=(ImageButton) findViewById(R.id.imageButton3);       bayuda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent t= new Intent(MainActivity.this,ayuda.class);

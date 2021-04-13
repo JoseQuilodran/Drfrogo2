@@ -17,11 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name="josequilodran.drfrogo2.levels_1p" />
-        <activity android:name="josequilodran.drfrogo2.level_1" />
-        <activity android:name="josequilodran.drfrogo2.level_2" />
-        <activity android:name="josequilodran.drfrogo2.level_3" />
-        <activity android:name="josequilodran.drfrogo2.level_4" />
-        <activity android:name="josequilodran.drfrogo2.level_5" />
         <activity android:name="josequilodran.drfrogo2.motor" />
         <activity android:name="josequilodran.drfrogo2.ayuda"/>
     </application>

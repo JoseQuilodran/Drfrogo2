@@ -1,6 +1,7 @@
 package josequilodran.drfrogo2;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -21,19 +22,15 @@ import android.widget.Toast;
 
 
 public class motor extends AppCompatActivity {
-    motor(int nivel,int puntaje,int virus,int tiempo){
+    motor(int nivel,int puntaje,int virus){
         this.nnivel=nivel;
         this.npuntaje=puntaje;
         this.nvirus=virus;
-        this.tiempo=tiempo;
     }
-    motor(){
-        this.nnivel=0;
-        this.npuntaje=664;
-        this.nvirus=1;
-        this.tiempo=600;}
+    public motor(){
+    }
 
-    MediaPlayer mp, gameover, victory;
+    Bundle extras ;
     ImageView a1;
     ImageButton vuelta;
     ImageButton mover_izq;
@@ -44,23 +41,25 @@ public class motor extends AppCompatActivity {
     ImageView d1, d2;
     casilla[][] casillas = new casilla[16][8];
     pildora p, p2;
-    int nnivel;
-    int npuntaje;
-    int nvirus;
+    int nnivel=1;
+    int npuntaje=0;
+    int nvirus=1;
+    int tiempo=600;
     int psx = 3;
     int psy = 15;
     int psx2 = 4;
     int psy2 = 15;
-    Handler handler, handler2, handler3;
+    Handler handler, handler2;
     TextView virus, puntaje, nivel;
-    int tiempo;
     Intent t2;
 
-
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_1);
+        extras = getIntent().getExtras();
+        generador_extra();
         creador();
         p = new pildora();
         p2 = new pildora();
@@ -114,7 +113,8 @@ public class motor extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
                     tiempo = copiatiempo;
                 }
-                return true;}
+                return true;
+            }
         });
         fallo = (ImageButton) findViewById(R.id.fallo);
         fallo.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +136,7 @@ public class motor extends AppCompatActivity {
             }
         };
         handler.postDelayed(runnable, tiempo);
+
         handler2 = new Handler();
         Runnable runnable2 = new Runnable() {
             @Override
@@ -143,25 +144,14 @@ public class motor extends AppCompatActivity {
                 for (int i = 1; i <= 14; i++) {
                     for (int f = 0; f <= 7; f++) {
                         flotantes(i, f);
+                        if(f<=6){
+                            flotante_pildora(i, f);}
                     }
                 }
                 handler2.postDelayed(this, tiempo);
             }
         };
         handler2.postDelayed(runnable2, tiempo);
-
-        handler3 = new Handler();
-        Runnable runnable3 = new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 1; i <= 14; i++) {
-                    for (int f = 0; f <= 6; f++) {
-                        flotante_pildora(i, f);
-                    }
-                }
-                handler3.postDelayed(this, tiempo);
-            }
-        };
 
         nivel = (TextView) findViewById(R.id.textView);
         nivel.setText("" + nnivel);
@@ -171,7 +161,7 @@ public class motor extends AppCompatActivity {
         virus.setText("" + nvirus);
     }
     public void onDestroy() {
-        super.onDestroy();    }
+        super.onDestroy();}
 
     class casilla {
         int id;
@@ -284,8 +274,6 @@ public class motor extends AppCompatActivity {
                     }
                 }
             }
-
-
             p = p2;
             p2 = new pildora();
             psx = 3;
@@ -358,7 +346,17 @@ public class motor extends AppCompatActivity {
             casillas[psy2][psx2].v.setImageResource(p.image2);
         }
     }
-
+    void generador_extra(){
+        if (extras != null) {
+            if (extras.containsKey("nivel")) {
+                nnivel = extras.getInt("nivel");
+                nvirus=(int)nnivel*5/2;
+            }
+            if (extras.containsKey("puntaje")) {
+                npuntaje += extras.getInt("puntaje");
+            }
+        }
+    }
     void creador() {
         casillas[0][0] = new casilla(R.id.imageView120);
         casillas[0][1] = new casilla(R.id.imageView119);
@@ -535,7 +533,6 @@ public class motor extends AppCompatActivity {
             casillas[i][f].tiene_amigo = false;
             casillas[i][f].color = 0;
 
-
             if (colores == 1) {
                 casillas[i - 1][f].v.setImageResource(R.drawable.red);
             } else if (colores == 2) {
@@ -582,7 +579,6 @@ public class motor extends AppCompatActivity {
             casillas[i - 1][f].color = colores;
             casillas[i - 1][f].tiene_algo = true;
             casillas[i - 1][f].tiene_amigo = true;
-
             int colores2 = casillas[i][f + 1].color;
             casillas[i][f + 1].v.setImageResource(R.drawable.vacio);
             casillas[i][f + 1].tiene_algo = false;
@@ -712,11 +708,7 @@ public class motor extends AppCompatActivity {
             return true;
         }
         if (id == R.id.sonido) {
-            if (mp.isPlaying()) {
-                mp.pause();
-            } else if (!mp.isPlaying()) {
-                mp.start();
-            }
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -725,23 +717,31 @@ public class motor extends AppCompatActivity {
     void fallo() {
         if (casillas[14][3].tiene_algo || casillas[14][4].tiene_algo) {
             t2 = new Intent(motor.this, motor.class);
+            if (extras.containsKey("puntaje")) {
+                t2.putExtra("puntaje",extras.getInt("puntaje"));
+            }
+            t2.putExtra("nivel",nnivel);
             fallo.setVisibility(View.VISIBLE);
-            tiempo = 300000;
         }
     }
 
     void victoria() {
         if (nvirus == 0) {
             t2 = new Intent(motor.this, motor.class);
+            t2.putExtra("puntaje",npuntaje);
+            if(nnivel<=5){
+                t2.putExtra("nivel",nnivel+1);}
+            else{
+                t2.putExtra("nivel",nnivel);
+            }
+
             fallo.setImageResource(R.drawable.win);
             fallo.setVisibility(View.VISIBLE);
-            tiempo = 300000;
         }
     }
 
 
     void creador_virus(int numero) {
-
         while (numero != 0) {
             int randoy = (int) (Math.random() * (0 - 7) + 7);
             int randox = (int) (Math.random() * (0 - 8) + 8);
@@ -760,7 +760,6 @@ public class motor extends AppCompatActivity {
                 if (casillas[i][f].virus) {
                     cantidad++;
                 }
-
             }
         }
         return cantidad;
